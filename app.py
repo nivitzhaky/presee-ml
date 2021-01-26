@@ -1,8 +1,6 @@
 import numpy as np
 import warnings
-import argparse
-from flask import Flask, render_template, session, redirect, url_for, request
-import csv
+from flask import Flask, request
 import os.path
 warnings.filterwarnings("ignore")
 from keras.models import load_model
