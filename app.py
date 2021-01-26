@@ -30,5 +30,7 @@ def index():
     with graph.as_default():
         y_score = model.predict(cur, batch_size=10, verbose=1)
     return str(y_score)
-
+@app.route("/",  methods=['GET'])
+def index2():
+    return "hello"
 app.run(host='0.0.0.0', port=8080)
