@@ -28,8 +28,13 @@ def index():
     cur = np.swapaxes(cur,0,1)
     cur=np.dstack((cur))
     with graph.as_default():
-        y_score = model.predict(cur, batch_size=10, verbose=1)
-    return str(y_score)
+        res = model.predict(cur, batch_size=10, verbose=1)
+
+    res = np.around(res, decimals=2)
+    d = {'1dAVb' : res[0][0],'RBBB' : res[0][1],'LBBB' : res[0][2],
+         'SB': res[0][3], 'AF': res[0][4], 'ST': res[0][5]
+         }
+    return str(d)
 @app.route("/",  methods=['GET'])
 def index2():
     return "hello"
